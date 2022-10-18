@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   res.json(products);
 });
 
-router.get('/filter',(req,res) => {
+router.get('/filter', (req, res) => {
 
   res.send('Yo soy un filter ');
 
@@ -38,7 +38,6 @@ router.post('/', (req, res) => {
     message: 'created',
     data: body
   });
-
 });
 
 router.patch('/:id', (req, res) => {
@@ -49,7 +48,14 @@ router.patch('/:id', (req, res) => {
     message: 'updated',
     data: body
   });
+});
 
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    id,
+    message: 'deleted',
+  });
 });
 
 module.exports = router;
